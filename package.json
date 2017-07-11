@@ -1,0 +1,22 @@
+{
+  "name": "Tetris",
+  "description": "An HTML5 implementation of the game Tetris",
+  "author": "Brunch",
+  "version": "0.0.1",
+  "repository": "",
+  "scripts": {
+    "start": "brunch watch --server",
+    "build": "brunch build --production"
+  },
+  "dependencies": {
+    "pixi.js": "^4.5.3"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^2",
+    "babel-brunch": "^6.1.1",
+    "brunch": "^2",
+    "clean-css-brunch": "^2",
+    "immutable": "^3.8.1",
+    "uglify-js-brunch": "^2"
+  }
+}
