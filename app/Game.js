@@ -2,10 +2,11 @@ import {log} from "./Logger.js";
 import {APP_SETTINGS} from "./constants.js";
 require("pixi.js");
 
+import {VisualLoader} from "./Loader.js";
+
 export class Game extends PIXI.Application {
 	constructor(container_id) {
 		super(APP_SETTINGS);
-
 		log("Initialized Game");
 
 		this.view.setAttribute("class", "game-canvas");
@@ -15,6 +16,19 @@ export class Game extends PIXI.Application {
 
 		window.addEventListener("resize", this.onResize.bind(this), false);
 		this.onResize();
+
+		this.visual_loader = new VisualLoader();
+		this.stage.addChild(this.visual_loader);
+
+		this.loader.on("progress", this.visual_loader.onProgress, this.visual_loader);
+		this.loader.on("complete", this.visual_loader.onComplete, this.visual_loader);
+
+		//this.loader.add(...)
+		//this.loader.load(this.initialize.bind(this))
+	}
+
+	initialize(loader, resources) {
+		log("Resources loaded", resources);
 	}
 
 	onResize() {

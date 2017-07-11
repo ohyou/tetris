@@ -6,7 +6,8 @@
   "repository": "",
   "scripts": {
     "start": "BUILD_TYPE=dev brunch watch --server",
-    "build": "BUILD_TYPE=prod brunch build --production"
+    "build": "BUILD_TYPE=prod brunch build --production",
+    "update-spritesheets": "cd ./resources && ./pack && cd .. && cp ./resources/spritesheets/* ./app/assets/spritesheets/"
   },
   "dependencies": {
     "pixi.js": "^4.5.3"

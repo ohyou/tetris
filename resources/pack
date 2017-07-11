@@ -1,0 +1,3 @@
+# Packing via https://www.npmjs.com/package/gamefroot-texture-packer (installed globally)
+
+gf-pack ./images/*.* -f pixi.js -n game_spritesheet -p ./spritesheets --padding 2
