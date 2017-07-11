@@ -5,8 +5,8 @@
   "version": "0.0.1",
   "repository": "",
   "scripts": {
-    "start": "brunch watch --server",
-    "build": "brunch build --production"
+    "start": "BUILD_TYPE=dev brunch watch --server",
+    "build": "BUILD_TYPE=prod brunch build --production"
   },
   "dependencies": {
     "pixi.js": "^4.5.3"
@@ -17,6 +17,7 @@
     "brunch": "^2",
     "clean-css-brunch": "^2",
     "immutable": "^3.8.1",
+    "replace-brunch": "^2.0.0",
     "uglify-js-brunch": "^2"
   }
 }

@@ -1,3 +1,8 @@
+import {log} from "./Logger.js";
+import {Game} from "./Game.js";
+
 document.addEventListener("DOMContentLoaded", () => {
-	console.log("Initialized app");
+	log("Initialized App");
+
+	let game = new Game("game");
 });
