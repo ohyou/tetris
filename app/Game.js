@@ -2,6 +2,7 @@ import {log} from "./Logger.js";
 import {APP_SETTINGS} from "./constants.js";
 require("pixi.js");
 
+import {AssetsManager} from "./AssetsManager.js";
 import {VisualLoader} from "./Loader.js";
 
 export class Game extends PIXI.Application {
@@ -16,6 +17,9 @@ export class Game extends PIXI.Application {
 
 		window.addEventListener("resize", this.onResize.bind(this), false);
 		this.onResize();
+		this.start();
+
+		this.assets = new AssetsManager();
 
 		this.visual_loader = new VisualLoader();
 		this.stage.addChild(this.visual_loader);
@@ -23,12 +27,13 @@ export class Game extends PIXI.Application {
 		this.loader.on("progress", this.visual_loader.onProgress, this.visual_loader);
 		this.loader.on("complete", this.visual_loader.onComplete, this.visual_loader);
 
-		//this.loader.add(...)
-		//this.loader.load(this.initialize.bind(this))
+		this.loader.add("spritesheet", "spritesheets/game_spritesheet-1.json");
+		this.loader.load(this.initialize.bind(this));
 	}
 
 	initialize(loader, resources) {
 		log("Resources loaded", resources);
+		this.assets.resources = resources;
 	}
 
 	onResize() {
